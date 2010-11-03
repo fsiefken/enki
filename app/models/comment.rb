@@ -16,6 +16,7 @@ class Comment < ActiveRecord::Base
   def validate
     super
     errors.add(:base, openid_error) unless openid_error.blank?
+    errors.add(:base, 'Comments disabled until I bring up a spam filter.')
   end
 
   def apply_filter
