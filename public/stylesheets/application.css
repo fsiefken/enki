@@ -382,10 +382,10 @@ pre.ruby .string { color: #b77c0a; }
 
 /* CODERAY */
 .CodeRay {
-  background-color: #f8f8f8;
+  background-color: #ffffde;
   border: 1px solid silver;
   font-family: 'Courier New', 'Terminal', monospace;
-  color: #100;
+  color: #333;
   margin-bottom: 1em;
 }
 .CodeRay pre { margin: 0px; font-size: 12px }
