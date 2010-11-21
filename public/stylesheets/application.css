@@ -40,7 +40,21 @@ body
 /* Headings */
 h1#page_heading
 {
-  font-size: 24pt;
+  font-family: 'Vollkorn', serif;
+  font-size: 66px;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: 2px 2px 2px #aaa;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0em;
+  word-spacing: 0em;
+  line-height: 1em;
+}
+
+h1#page_heading a
+{
+  color: #335
 }
 
 h2
