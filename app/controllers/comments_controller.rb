@@ -51,7 +51,9 @@ class CommentsController < ApplicationController
       end
     end
 
-    if session[:pending_comment].nil? && @comment.save
+    probably_human = params[:math].to_i == 4
+
+    if probably_human && session[:pending_comment].nil? && @comment.save
       redirect_to post_path(@post)
     else
       render :template => 'posts/show'
