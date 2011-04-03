@@ -41,8 +41,21 @@ body
 /* Headings */
 h1#page_heading
 {
-  font-size: 24pt;
-	color: #000 !important;
+  font-family: 'Vollkorn', serif;
+  font-size: 66px;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: 2px 2px 2px #aaa;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0em;
+  word-spacing: 0em;
+  line-height: 1em;
+}
+
+h1#page_heading a
+{
+  color: #335
 }
 
 h2
@@ -54,6 +67,11 @@ h2
 h2 a, h3, h4, h5
 {
   color: #333333;
+}
+
+.post h2
+{
+  font-size: 1.5em;
 }
 
 /* Text */
@@ -81,9 +99,9 @@ strong
 
 a 
 {
-  color: #000051;
-  
-  text-decoration: none;    
+  color: #33C;
+
+  text-decoration: none;
 }
   
 small a, label a
@@ -367,10 +385,10 @@ pre.ruby .string { color: #b77c0a; }
 
 /* CODERAY */
 .CodeRay {
-  background-color: #f8f8f8;
+  background-color: #ffffde;
   border: 1px solid silver;
   font-family: 'Courier New', 'Terminal', monospace;
-  color: #100;
+  color: #333;
   margin-bottom: 1em;
 }
 .CodeRay pre { margin: 0px; font-size: 12px }
