@@ -4,50 +4,58 @@
   <meta charset="utf-8">
   <title><%= html_title yield(:page_title) %></title>
   <%= csrf_meta_tag %>
-  <%= stylesheet_link_tag 'application' %>
+  <link href="//fonts.googleapis.com/css?family=Vollkorn:regular,italic,bold,bolditalic&amp;subset=latin" rel="stylesheet" type="text/css" >
+  <link href="http://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic" rel="stylesheet" type="text/css" >
+  <%= stylesheet_link_tag 'reset', '960', 'text', 'xyzzyb' %>
   <%= javascript_include_tag 'jquery' %>
   <%= javascript_include_tag 'rails' %>
   <%= open_id_delegation_link_tags(enki_config[:open_id_delegation, :server], enki_config[:open_id_delegation, :delegate]) if enki_config[:open_id_delegation] %>
   <%= yield(:head) %>
-  <link  href="//fonts.googleapis.com/css?family=Vollkorn:regular,italic,bold,bolditalic&subset=latin" rel="stylesheet" type="text/css" >
 </head>
 <body>
-  <div id="page_container">
-    <div id="content">
-      <h1 id="page_heading"><a href="<%= root_url %>"><%= enki_config[:title] %></a></h1>
-
+  <div id="page_container" class="container_16">
+    <div id="layout" class="grid_10 prefix_3 suffix_3">
+      <header>
+        <h1><a href="<%= root_url %>"><%= enki_config[:title] %></a></h1>
+        <ul>
+          <li><a href="/archives">Archives</a></li>
+          <li>
+            <form method="get" id="sform" action="http://www.google.com/search">
+              <label for="q">Search</label>
+              <input type="text" id="q" value="" name="q">
+              <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
+            </form>
+          </li>
+        </ul>
+      </header>
       <div id="main">
         <%= yield %>
       </div>
-
-      <div id="navigation">
+    </div>
+  </div>
+  <footer>
+    <div class="container_16">
+      <nav class="grid_8 prefix_2">
         <h2>Pages</h2>
         <ul>
           <% page_links_for_navigation.each do |link| -%>
             <li><%= link_to(link.name, link.url) %></li>
           <% end -%>
         </ul>
-        <% unless category_links_for_navigation.empty? -%>
-          <h2>Categories</h2>
-          <ul>
-            <% category_links_for_navigation.each do |link| -%>
-              <li><%= link_to(link.name, link.url) %></li>
-            <% end -%>
-          </ul>
-        <% end -%>
-        <form method="get" id="sform" action="http://www.google.com/search">
-          <div>
-            <h2><label for="q">Search</label></h2>
-
-            <input type="text" id="q" value="" name="q">
-            <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
-          </div>
-        </form>
+      </nav>
+      <nav class="grid_6">
+        <h2>Tags</h2>
+        <ul>
+          <% category_links_for_navigation.each do |link| -%>
+            <li><%= link_to(link.name, link.url) %></li>
+          <% end -%>
+        </ul>
+      </nav>
+      <div class="grid_14 prefix_2">
+        <%= enki_config[:title] %> &#169; <%= enki_config[:author, :name] %>. Powered by <a href="http://www.enkiblog.com" title="A Ruby on Rails blogging app for the fashionable developer">Enki</a>.
       </div>
-
-      <div id="footer"><%= enki_config[:title] %> &#169; <%= enki_config[:author, :name] %>. Valid <a href="http://validator.w3.org/check?uri=referer">HTML5</a> and <%= link_to "ATOM", "http://feedvalidator.org/check.cgi?url=#{enki_config[:url]}/posts.atom" %>. Powered by <a href="http://www.enkiblog.com" title="A Ruby on Rails blogging app for the fashionable developer">Enki</a>.</div>
     </div>
-  </div>
+  </footer>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
