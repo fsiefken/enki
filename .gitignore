@@ -8,3 +8,4 @@ db/schema.rb
 *.log
 public/favicon.gif
 .rvmrc
+.DS_Store
