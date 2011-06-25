@@ -1,81 +1,60 @@
 body {
-  background-color: #211;
-  font-family: 'Lato', serif;
+  color: #dedede;
+  background-color: #111;
+  font-family: sans-serif;
 }
-
-h1 {
-  font-size: 25px;
+.homepage {
+  margin: 200px 0 100px 0;
 }
-
-h2 {
-  font-size: 23px;
-}
-
-h3 {
-  font-size: 21px;
-}
-
-h4 {
-  font-size: 19px;
-}
-
-h5 {
-  font-size: 17px;
-}
-
-h6 {
-  font-size: 15px;
-}
-
-header {
-  padding-top: 30px;
-}
-
-header h1 a {
-  font-family: 'Vollkorn', serif;
-  font-size: 66px;
+.homepage.logo h1 {
+  color: #555;
+  font-family: 'Nobile', sans-serif;
+  font-size: 140px;
   font-style: normal;
-  font-weight: normal;
-  text-shadow: 2px 2px 2px #aaa;
+  font-weight: 400;
+  text-shadow: none;
   text-decoration: none;
   text-transform: none;
   letter-spacing: 0em;
   word-spacing: 0em;
-  line-height: 1em;
-  color: black;
+  line-height: 1.2;
 }
-
-#layout {
-  background-color: #eee;
-  color: #555;
-  font-size: 18px;
-  line-height: 36px;
-  border-left: 8px solid white;
-  border-right: 8px solid #888;
+.homepage.logo .char1 {
 }
-
-a {
-  color: #333;
-  font-weight: bold;
-  text-decoration: underline;
+.homepage.logo .char2 {
+  position: relative;
+  left: -15px;
 }
-
-.gist {
-  font-size: 12px;
+.homepage.logo .char3 {
+  position: relative;
+  left: -20px;
 }
-
+.homepage.logo .char4 {
+  position: relative;
+  left: -24px;
+}
+.homepage.logo .char5 {
+  position: relative;
+  left: -26px;
+}
+.homepage.logo .char6 {
+  color: #c21;
+  position: relative;
+  left: -38px;
+  font-size: 150px;
+}
 footer {
   clear: both;
   float: left;
   width: 100%;
-  border-top: 4px solid #999;
+  border-top: 4px solid #333;
   background-color: #222;
-  padding: 20px 0px 30px 0;
-  color: white;
+  padding: 20px;
+  color: #aaa;
 }
 
 footer a {
-  color: #aaa;
+  color: #bbb;
 }
 
 footer ul {
