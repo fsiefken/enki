@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <title><%= html_title yield(:page_title) %></title>
   <%= csrf_meta_tag %>
-  <link  href="http://fonts.googleapis.com/css?family=Preahvihear:regular&amp;subset=khmer&amp;v1" rel="stylesheet" type="text/css" >
-  <%= stylesheet_link_tag 'reset', '960', 'text', 'limelight', 'xyzzyb' %>
+  <link href='http://fonts.googleapis.com/css?family=Limelight&amp;v1' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag 'reset', '960', 'text', 'xyzzyb' %>
   <%= javascript_include_tag 'jquery' %>
   <%= javascript_include_tag 'rails' %>
   <%= open_id_delegation_link_tags(enki_config[:open_id_delegation, :server], enki_config[:open_id_delegation, :delegate]) if enki_config[:open_id_delegation] %>
