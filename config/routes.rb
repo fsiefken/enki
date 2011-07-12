@@ -14,7 +14,15 @@ Enki::Application.routes.draw do
 
     root :to => 'dashboard#show'
   end
-  
+
+  match "/stories/:name" => redirect {|params| "/posts/#{params[:name].pluralize}" }
+  match "/stories" => redirect {|p, req| "/posts/#{req.subdomain}" }
+
+  match '2010/11/12/rvm-virtualenv' => redirect('/blog/2010/11/13/rvm-virtualenv')
+  constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
+    match ':year/:month/:day/:slug' => redirect { |params| "/blog/#{params[:year]}/#{params[:month]}/#{params[:day]}/#{params[:slug]}" }
+  end
+
   scope "/blog" do
     resources :archives, :only => [:index]
     resources :pages, :only => [:show]
@@ -30,6 +38,6 @@ Enki::Application.routes.draw do
       get '(:tag)', :as => :posts
     end
   end
-  
+
   root :to => 'homepage#show'
 end
