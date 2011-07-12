@@ -14,20 +14,22 @@ Enki::Application.routes.draw do
 
     root :to => 'dashboard#show'
   end
+  
+  scope "/blog" do
+    resources :archives, :only => [:index]
+    resources :pages, :only => [:show]
 
-  resources :archives, :only => [:index]
-  resources :pages, :only => [:show]
+    constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
+      post ':year/:month/:day/:slug/comments' => 'comments#index'
+      get ':year/:month/:day/:slug/comments/new' => 'comments#new'
+      get ':year/:month/:day/:slug' => 'posts#show'
+    end
 
-  constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
-    post ':year/:month/:day/:slug/comments' => 'comments#index'
-    get ':year/:month/:day/:slug/comments/new' => 'comments#new'
-    get ':year/:month/:day/:slug' => 'posts#show'
+    scope :to => 'posts#index' do
+      get 'posts.:format', :as => :formatted_posts
+      get '(:tag)', :as => :posts
+    end
   end
-
-  scope :to => 'posts#index' do
-    get 'posts.:format', :as => :formatted_posts
-    get '(:tag)', :as => :posts
-  end
-
-  root :to => 'posts#index'
+  
+  root :to => 'homepage#show'
 end

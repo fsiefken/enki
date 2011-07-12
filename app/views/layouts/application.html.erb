@@ -4,21 +4,30 @@
   <meta charset="utf-8">
   <title><%= html_title yield(:page_title) %></title>
   <%= csrf_meta_tag %>
-  <link href="//fonts.googleapis.com/css?family=Vollkorn:regular,italic,bold,bolditalic&amp;subset=latin" rel="stylesheet" type="text/css" >
-  <link href="http://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic" rel="stylesheet" type="text/css" >
+  <link href='http://fonts.googleapis.com/css?family=Limelight|Playfair+Display&amp;v2' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag 'reset', '960', 'text', 'xyzzyb' %>
   <%= javascript_include_tag 'jquery' %>
   <%= javascript_include_tag 'rails' %>
   <%= open_id_delegation_link_tags(enki_config[:open_id_delegation, :server], enki_config[:open_id_delegation, :delegate]) if enki_config[:open_id_delegation] %>
   <%= yield(:head) %>
 </head>
-<body>
-  <div id="page_container" class="container_16">
-    <div id="layout" class="grid_10 prefix_3 suffix_3">
-      <header>
+<body class="blog">
+
+  <header class="blog">
+    <section class="container_12">
+      <section class="grid_12">
         <h1><a href="<%= root_url %>"><%= enki_config[:title] %></a></h1>
-        <ul>
-          <li><a href="/archives">Archives</a></li>
+      </section>
+    </section>
+  </header>
+
+  <nav class="blog">
+    <div class="container_12 clearfix">
+      <div class="grid_12">
+        <ul class="topmenu">
+          <% page_links_for_navigation.each do |link| -%>
+            <li><%= link_to(link.name, link.url) %></li>
+          <% end -%>
           <li>
             <form method="get" id="sform" action="http://www.google.com/search">
               <label for="q">Search</label>
@@ -27,34 +36,29 @@
             </form>
           </li>
         </ul>
-      </header>
-      <div id="main">
-        <%= yield %>
       </div>
     </div>
-  </div>
-  <footer>
-    <div class="container_16">
-      <nav class="grid_8 prefix_2">
-        <h2>Pages</h2>
-        <ul>
-          <% page_links_for_navigation.each do |link| -%>
-            <li><%= link_to(link.name, link.url) %></li>
-          <% end -%>
-        </ul>
-      </nav>
-      <nav class="grid_6">
-        <h2>Tags</h2>
-        <ul>
-          <% category_links_for_navigation.each do |link| -%>
-            <li><%= link_to(link.name, link.url) %></li>
-          <% end -%>
-        </ul>
-      </nav>
-      <div class="grid_14 prefix_2">
+  </nav>
+
+  <section class="container_12">
+    <section class="grid_9">
+      <%= yield %>
+    </section>
+    <section class="grid_3">
+      <h2>Tags</h2>
+      <ul>
+        <% category_links_for_navigation.each do |link| -%>
+          <li><%= link_to(link.name, link.url) %></li>
+        <% end -%>
+      </ul>
+    </section>
+  </section>
+  <footer class="clearfix">
+    <section class="container_12">
+      <section class="grid_12">
         <%= enki_config[:title] %> &#169; <%= enki_config[:author, :name] %>. Powered by <a href="http://www.enkiblog.com" title="A Ruby on Rails blogging app for the fashionable developer">Enki</a>.
-      </div>
-    </div>
+      </section>
+    </section>
   </footer>
 <script type="text/javascript">
 

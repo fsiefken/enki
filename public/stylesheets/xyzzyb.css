@@ -1,89 +1,197 @@
 body {
-  background-color: #211;
-  font-family: 'Lato', serif;
+  color: #dedede;
+  background-color: #000;
+  font-family: 'Playfair Display', serif;
 }
-
-h1 {
-  font-size: 25px;
+a {
+  color: #ccc;
+  text-decoration: none;
 }
-
-h2 {
-  font-size: 23px;
+body.blog {
+  color: #444;
+  background-color: #fff;
+  font-size: 14px;
 }
-
-h3 {
-  font-size: 21px;
+body.blog a {
+  color: #444;
+  font-weight: bold;
 }
-
-h4 {
-  font-size: 19px;
+.homepage {
+  margin: 200px 0 100px 0;
 }
-
-h5 {
-  font-size: 17px;
-}
-
-h6 {
-  font-size: 15px;
-}
-
-header {
-  padding-top: 30px;
-}
-
-header h1 a {
-  font-family: 'Vollkorn', serif;
-  font-size: 66px;
+.homepage.logo h1 {
+  color: #FFF;
+  font-family: 'Limelight', Helvetica, sans-serif;
+  font-size: 140px;
   font-style: normal;
-  font-weight: normal;
-  text-shadow: 2px 2px 2px #aaa;
+  font-weight: 400;
+  text-shadow: none;
   text-decoration: none;
   text-transform: none;
   letter-spacing: 0em;
   word-spacing: 0em;
-  line-height: 1em;
-  color: black;
+  line-height: 1.2;
+  text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+}
+.homepage.logo .char1 {
+  text-shadow: 0 6px 1px rgba(255,255,255,.1),
+               0 0 5px rgba(255,255,255,.1),
+               0 1px 3px rgba(255,255,255,.3),
+               0 3px 5px rgba(255,255,255,.2),
+               0 5px 10px rgba(255,255,255,.25),
+               0 10px 10px rgba(255,255,255,.2),
+               0 20px 20px rgba(255,255,255,.15);
+}
+.homepage.logo .char2 {
+  position: relative;
+  left: -15px;
+  text-shadow: 4px 6px 1px rgba(255,255,255,.1),
+               -4px 0 5px rgba(255,255,255,.1),
+               -4px 1px 3px rgba(255,255,255,.3),
+               -4px 3px 5px rgba(255,255,255,.2),
+               -4px 5px 10px rgba(255,255,255,.25),
+               4px 5px 10px rgba(255,255,255,.25),
+               4px 10px 10px rgba(255,255,255,.2),
+               4px 20px 20px rgba(255,255,255,.15);
+}
+.homepage.logo .char3 {
+  position: relative;
+  left: -20px;
+  text-shadow: 0 6px 1px rgba(255,255,255,.1),
+               0 0 5px rgba(255,255,255,.1),
+               0 1px 3px rgba(255,255,255,.3),
+               0 3px 5px rgba(255,255,255,.2),
+               0 5px 10px rgba(255,255,255,.25),
+               0 10px 10px rgba(255,255,255,.2),
+               0 20px 20px rgba(255,255,255,.15);
+}
+.homepage.logo .char4 {
+  position: relative;
+  left: -24px;
+  text-shadow: 6px 6px 1px rgba(255,255,255,.1),
+               6px 0 5px rgba(255,255,255,.1),
+               6px 1px 3px rgba(255,255,255,.3),
+               6px -3px 5px rgba(255,255,255,.2),
+               6px -5px 10px rgba(255,255,255,.25),
+               6px -10px 10px rgba(255,255,255,.2),
+               6px 20px 20px rgba(255,255,255,.15);
+}
+.homepage.logo .char5 {
+  position: relative;
+  left: -26px;
+  text-shadow: 0 6px 1px rgba(255,255,255,.1),
+               0 0 5px rgba(255,255,255,.1),
+               0 1px 3px rgba(255,255,255,.3),
+               0 3px 5px rgba(255,255,255,.2),
+               0 5px 10px rgba(255,255,255,.25),
+               0 10px 10px rgba(255,255,255,.2),
+               0 20px 20px rgba(255,255,255,.15);
+}
+.homepage.logo .char6 {
+  position: relative;
+  left: -32px;
+  text-shadow: -3px 6px 3px rgba(255,255,255,.1),
+               -3px 0 5px rgba(255,255,255,.1),
+               3px 1px 3px rgba(255,255,255,.3),
+               -3px -3px 5px rgba(255,255,255,.2),
+               3px -5px 30px rgba(255,255,255,.25),
+               -3px -10px 10px rgba(255,255,255,.2),
+               3px 20px 20px rgba(255,255,255,.15);
+}
+.homepage ul {
+  list-style: none inside;
+}
+.homepage ul li {
+  font-size: 36px;
+}
+.homepage ul li a {
+  text-decoration: none;
+  color: #aaa;
+  text-shadow: -3px 6px 3px rgba(255,255,255,.1),
+               -3px 0 5px rgba(255,255,255,.1),
+               3px 1px 3px rgba(255,255,255,.1),
+               -3px -3px 5px rgba(255,255,255,.1),
+               3px -5px 30px rgba(255,255,255,.15),
+               -3px -10px 10px rgba(255,255,255,.1),
+               3px 20px 20px rgba(255,255,255,.15);
+}
+.homepage ul li a:hover {
+  color: #dedede;
+  text-shadow: -3px 6px 3px rgba(255,255,255,.1),
+               -3px 0 5px rgba(255,255,255,.1),
+               3px 1px 3px rgba(255,255,255,.3),
+               -3px -3px 5px rgba(255,255,255,.2),
+               3px -5px 30px rgba(255,255,255,.25),
+               -3px -10px 10px rgba(255,255,255,.2),
+               3px 20px 20px rgba(255,255,255,.15);
 }
 
-#layout {
-  background-color: #eee;
-  color: #555;
-  font-size: 18px;
-  line-height: 36px;
-  border-left: 8px solid white;
-  border-right: 8px solid #888;
-}
 
-a {
-  color: #333;
-  font-weight: bold;
-  text-decoration: underline;
+header.blog h1 a {
+  text-decoration: none;
+  color: #000;
+  font-family: 'Limelight', Helvetica, sans-serif;
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: none;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0em;
+  word-spacing: 0em;
+  line-height: 1.2;
+  text-shadow: 0px 0px 8px #999;
 }
-
-.gist {
-  font-size: 12px;
+header.blog h1 .char1 {
+}
+header.blog h1 .char2 {
+  position: relative;
+  left: -15px;
+}
+header.blog h1 .char3 {
+  position: relative;
+  left: -20px;
+}
+header.blog h1 .char4 {
+  position: relative;
+  left: -24px;
+}
+header.blog h1 .char5 {
+  position: relative;
+  left: -26px;
+}
+header.blog h1 .char6 {
+  position: relative;
+  left: -32px;
+}
+header.blog {
+  background-color: black;
+}
+nav.blog {
+  border-top: 4px double black;
+  border-bottom: 4px double black;
+  clear: both;
+}
+ul.topmenu {
+  float: left;
+  position: relative;
+  top: 10px;
+  list-style: none;
+}
+ul.topmenu li {
+  margin: 0 30px 0 0;
+  float: left;
+  position: relative;
 }
 
 footer {
-  clear: both;
-  float: left;
-  width: 100%;
-  border-top: 4px solid #999;
-  background-color: #222;
-  padding: 20px 0px 30px 0;
-  color: white;
+  color: #ddd;
+  font-size: 16px;
 }
-
 footer a {
-  color: #aaa;
-}
-
-footer ul {
-  list-style: none outside;
-  padding: 0;
-  margin: 0;
-}
-
-footer ul li {
-  margin-left: 3px;
+  color: #11A9E2;
 }
