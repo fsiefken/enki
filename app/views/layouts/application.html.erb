@@ -1,65 +1,112 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en-US">
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title><%= html_title yield(:page_title) %></title>
   <%= csrf_meta_tag %>
-  <link href='http://fonts.googleapis.com/css?family=Limelight|Playfair+Display&amp;v2' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag 'reset', '960', 'text', 'xyzzyb' %>
-  <%= javascript_include_tag 'jquery' %>
-  <%= javascript_include_tag 'rails' %>
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold" rel="stylesheet" /> <!-- Load Droid Serif from Google Fonts -->
+  <!-- All JavaScript at the bottom, except for Modernizr and Respond.
+  Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries -->
+  <%= javascript_include_tag 'modernizr-1.7.min.js' %>
+  <%= javascript_include_tag 'respond.min.js' %>
+  <%= stylesheet_link_tag 'reset', '960', 'text', 'jayj' %>
   <%= open_id_delegation_link_tags(enki_config[:open_id_delegation, :server], enki_config[:open_id_delegation, :delegate]) if enki_config[:open_id_delegation] %>
   <%= yield(:head) %>
 </head>
-<body class="blog">
-
-  <header class="blog">
-    <section class="container_12">
-      <section class="grid_12">
-        <h1><a href="<%= root_url %>"><%= enki_config[:title] %></a></h1>
-      </section>
-    </section>
-  </header>
-
-  <nav class="blog">
-    <div class="container_12 clearfix">
-      <div class="grid_12">
-        <ul class="topmenu">
+<body>
+  <div id="wrapper">
+    <header id="header" class="clearfix" role="banner">
+      <hgroup>
+        <h1 id="site-title"><%= link_to enki_config[:title], root_url %></h1>
+        <h2 id="site-description">Just a geek, writing about all the things.</h2>
+      </hgroup>
+    </header> <!-- #header -->
+    <div id="main" class="clearfix">
+      <!-- Navigation -->
+      <nav id="menu" class="clearfix" role="navigation">
+        <ul>
           <% page_links_for_navigation.each do |link| -%>
             <li><%= link_to(link.name, link.url) %></li>
           <% end -%>
-          <li>
-            <form method="get" id="sform" action="http://www.google.com/search">
-              <label for="q">Search</label>
-              <input type="text" id="q" value="" name="q">
-              <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
-            </form>
-          </li>
         </ul>
-      </div>
-    </div>
-  </nav>
+      </nav> <!-- #nav -->
+      <!-- Show a "Please Upgrade" box to both IE7 and IE6 users (Edit to IE 6 if you just want to show it to IE6 users) - jQuery will load the content from js/ie.html into the div -->
+      <!--[if lte IE 7]>
+        <div class="ie warning"></div>
+      <![endif]-->
+      <div id="content" role="main">
+        <%= yield %>
+      </div> <!-- #content -->
 
-  <section class="container_12">
-    <section class="grid_9">
-      <%= yield %>
-    </section>
-    <section class="grid_3">
-      <h2>Tags</h2>
-      <ul>
-        <% category_links_for_navigation.each do |link| -%>
-          <li><%= link_to(link.name, link.url) %></li>
-        <% end -%>
-      </ul>
-    </section>
-  </section>
-  <footer class="clearfix">
-    <section class="container_12">
-      <section class="grid_12">
-        <%= enki_config[:title] %> &#169; <%= enki_config[:author, :name] %>. Powered by <a href="http://www.enkiblog.com" title="A Ruby on Rails blogging app for the fashionable developer">Enki</a>.
-      </section>
-    </section>
-  </footer>
+      <aside id="sidebar" role="complementary">
+        <aside class="widget">
+          <h3>Karma Widget</h3>
+          <!-- BEGIN DUCK DUCK GO KARMA WIDGET CODE //-->
+          <script type="text/javascript">
+          ddg_k_title='My Karma';
+          ddg_k_bold_karma='1';
+          ddg_k_link_karma='0';
+          ddg_k_link_label='0';
+          ddg_k_show_username='0';
+          ddg_k_show_service_name='0';
+          ddg_k_paren_karma='0';
+          ddg_k_vertical_spacing='5';
+          ddg_k_column_width='150';
+          ddg_k_padding='5';
+          ddg_k_font_size='9pt';
+          ddg_k_font_color='';
+          ddg_k_font_family='';
+          ddg_k_border='1px solid #AAA';
+          </script>
+          <div id="ddg_k" style="width:150px;font-size:9pt;border:1px solid #AAA;padding:5px;text-align:left;">-<div style="text-align: right; font-size: 80%; padding-top: 5px;">by <a style="display:inline;list-style-type:none;" href="http://duckduckgo.com/">DuckDuckGo</a></div></div>
+          <script type="text/javascript" src="http://karma.duckduckgo.com/k.js?t=F,1,5,2,6&u=sdball,xyzzyb,sdball,xyzzy_b,xyzzyb"></script>
+          <!-- END DUCK DUCK GO KARMA WIDGET CODE //-->
+        </aside> <!-- .widget -->
+
+        <aside class="widget">
+          <form method="get" id="sform" class="searchform" action="http://www.google.com/search">
+            <input type="search" placeholder="Search&hellip;" id="q" value="" name="q">
+            <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
+            <input type="submit" value="Search" />
+          </form>
+        </aside> <!-- .widget -->
+
+        <aside class="widget">
+          <h3>Tags</h3>
+          <ul>
+            <% category_links_for_navigation.each do |link| -%>
+              <li><%= link_to(link.name, link.url) %></li>
+            <% end -%>
+          </ul>
+        </aside> <!-- .widget -->
+      </aside> <!-- #sidebar -->
+    </div> <!-- #main -->
+    <footer id="footer">
+      <!-- You're free to remove the credit link to Jayj.dk in the footer, but please, please leave it there :) -->
+      <p>
+        Copyright &copy; 2011 by <%= enki_config[:author, :name] %>
+        <span class="sep">|</span>
+        Powered by <a href="http://www.enkiblog.com" title="A Ruby on Rails blogging app for the fashionable developer">Enki</a>
+        <span class="sep">|</span>
+        Design by <a href="http://jayj.dk" title="Design by Jayj.dk">Jayj.dk</a>
+      </p>
+    </footer> <!-- #footer -->
+    <div class="clear"></div>
+  </div> <!-- #wrapper -->
+<%= javascript_include_tag 'jquery' %>
+<%= javascript_include_tag 'rails' %>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $(".ie").load("ie.html"); // Load the IE warning into a div with a class of ie
+  });
+</script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

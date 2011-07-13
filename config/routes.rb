@@ -39,5 +39,7 @@ Enki::Application.routes.draw do
     end
   end
 
+  match '+' => redirect('https://plus.google.com/108578129508819676730/posts')
+
   root :to => 'homepage#show'
 end

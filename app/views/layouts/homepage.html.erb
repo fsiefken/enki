@@ -5,7 +5,7 @@
   <title><%= html_title yield(:page_title) %></title>
   <%= csrf_meta_tag %>
   <link href='http://fonts.googleapis.com/css?family=Limelight|Playfair+Display&amp;v2' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag 'reset', '960', 'text', 'xyzzyb' %>
+  <%= stylesheet_link_tag 'reset', '960', 'text', 'homepage' %>
   <%= javascript_include_tag 'jquery' %>
   <%= javascript_include_tag 'rails' %>
   <%= javascript_include_tag 'jquery.lettering-0.6.1.min.js' %>
@@ -17,7 +17,6 @@
   <section class="container_12">
     <%= yield %>
   </section>
-  <%= render :partial => 'application/footer' %>
   <script type="text/javascript">
 
     var _gaq = _gaq || [];
