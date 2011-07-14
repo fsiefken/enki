@@ -15,10 +15,11 @@ Enki::Application.routes.draw do
     root :to => 'dashboard#show'
   end
 
+  match '+' => redirect('https://plus.google.com/108578129508819676730/posts')
+  match '2010/11/12/rvm-virtualenv' => redirect('/2010/11/13/rvm-virtualenv')
   match "/stories/:name" => redirect {|params| "/posts/#{params[:name].pluralize}" }
   match "/stories" => redirect {|p, req| "/posts/#{req.subdomain}" }
 
-  match '2010/11/12/rvm-virtualenv' => redirect('/2010/11/13/rvm-virtualenv')
 
   resources :archives, :only => [:index]
   resources :pages, :only => [:show]
@@ -34,7 +35,6 @@ Enki::Application.routes.draw do
     get '(:tag)', :as => :posts
   end
 
-  match '+' => redirect('https://plus.google.com/108578129508819676730/posts')
 
   root :to => 'posts#index'
 end
