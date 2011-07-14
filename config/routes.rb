@@ -18,28 +18,23 @@ Enki::Application.routes.draw do
   match "/stories/:name" => redirect {|params| "/posts/#{params[:name].pluralize}" }
   match "/stories" => redirect {|p, req| "/posts/#{req.subdomain}" }
 
-  match '2010/11/12/rvm-virtualenv' => redirect('/blog/2010/11/13/rvm-virtualenv')
+  match '2010/11/12/rvm-virtualenv' => redirect('/2010/11/13/rvm-virtualenv')
+
+  resources :archives, :only => [:index]
+  resources :pages, :only => [:show]
+
   constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
-    match ':year/:month/:day/:slug' => redirect { |params| "/blog/#{params[:year]}/#{params[:month]}/#{params[:day]}/#{params[:slug]}" }
+    post ':year/:month/:day/:slug/comments' => 'comments#index'
+    get ':year/:month/:day/:slug/comments/new' => 'comments#new'
+    get ':year/:month/:day/:slug' => 'posts#show'
   end
 
-  scope "/blog" do
-    resources :archives, :only => [:index]
-    resources :pages, :only => [:show]
-
-    constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
-      post ':year/:month/:day/:slug/comments' => 'comments#index'
-      get ':year/:month/:day/:slug/comments/new' => 'comments#new'
-      get ':year/:month/:day/:slug' => 'posts#show'
-    end
-
-    scope :to => 'posts#index' do
-      get 'posts.:format', :as => :formatted_posts
-      get '(:tag)', :as => :posts
-    end
+  scope :to => 'posts#index' do
+    get 'posts.:format', :as => :formatted_posts
+    get '(:tag)', :as => :posts
   end
 
   match '+' => redirect('https://plus.google.com/108578129508819676730/posts')
 
-  root :to => 'homepage#show'
+  root :to => 'posts#index'
 end
