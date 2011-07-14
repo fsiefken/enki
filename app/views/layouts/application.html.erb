@@ -105,6 +105,16 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
     $(".ie").load("ie.html"); // Load the IE warning into a div with a class of ie
+    $('td.code pre').hover(function() {
+      $(this).animate({width: '730px'}, 500);
+    }, function() {
+      $(this).animate({width: '462px'}, 500);
+    });
+    $('td.code pre').toggle(function() {
+      $(this).animate({width: '730px'}, 500);
+    }, function() {
+      $(this).animate({width: '462px'}, 500);
+    });
   });
 </script>
 <script type="text/javascript">
