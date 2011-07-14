@@ -4,7 +4,7 @@ title: XyzzyB
 url:   http://xyzzyb.com
 author:
   name:    Stephen Ball        # For copyright notice and ATOM feeds
-  email:   sdball@xyzzyb.com   # Exception emails will go here, and it is used in ATOM feeds
+  email:   sdball@gmail.com    # Exception emails will go here, and it is used in ATOM feeds
   open_id:                     # These are used to login to the admin area
       - http://xyzzyb.com
       - http://sdball.myopenid.com
